@@ -25,11 +25,14 @@ const App = () => {
   const addM = (txt) => {
     event.preventDefault();
 
-    if (m.indexOf(currentM) !== -1) return;
+    let number = 1;
+
+    if (m.indexOf(currentM) !== -1) return; //check if already exist
 
     setM([
       ...m,
       {
+        num: number,
         text: txt,
         key: Date.now(),
       },
@@ -42,10 +45,11 @@ const App = () => {
 
   return (
     <div>
-      <Topbar />
-      <Toolbar />
-      <AddM addM={addM} />
-      <MList m={m} remove={removeM} />
+      <div id="right">
+        <h2>Cart</h2>
+        {/* TODO: render a list of items in the cart */}
+        <MList m={m} remove={removeM} />
+      </div>
 
       <div id="left">
         <h1>My Bakery</h1>
@@ -70,12 +74,6 @@ const App = () => {
               ></BakeryItem>
             )
           )}
-        </div>
-
-        <div id="right">
-          <h2>Cart</h2>
-          {/* TODO: render a list of items in the cart */}
-          <p>Cart Items:{cart}</p>
         </div>
       </div>
     </div>

@@ -12,9 +12,7 @@ export default function MList(props) {
   const createEntry = (m) => {
     return (
       <ListItemButton onClick={() => props.remove(m.key)}>
-        <ListItemIcon>
-          <PetsIcon />
-        </ListItemIcon>
+        <ListItemText>{m.num}</ListItemText>
         <ListItemText>{m.text}</ListItemText>
       </ListItemButton>
     );
