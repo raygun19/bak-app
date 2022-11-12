@@ -47,7 +47,7 @@ const BakeryItem = (props) => {
 
       <button
         onClick={(e) => {
-          props.addM(props.name);
+          props.addM(props.name, props.price);
           e.preventDefault();
         }}
       >

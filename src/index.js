@@ -18,8 +18,9 @@ bakeryData.forEach((item) => {
 
 const App = () => {
   const [m, setM] = React.useState([]);
+  const [total, setTotal] = React.useState(0);
 
-  const addM = (txt) => {
+  const addM = (txt, price) => {
     event.preventDefault();
 
     let number = 1;
@@ -41,10 +42,13 @@ const App = () => {
         },
       ]);
     }
+
+    let t = Math.round((total + price) * 100) / 100;
+    setTotal(t);
   };
 
   const removeM = (key) => {
-    setM(m.filter((m) => key != m.key));
+    // setM(m.filter((m) => key != m.key));
   };
 
   return (
@@ -53,6 +57,7 @@ const App = () => {
         <h2>Cart</h2>
         {/* TODO: render a list of items in the cart */}
         <MList m={m} remove={removeM} />
+        <p>Price: {total}</p>
       </div>
 
       <div id="left">
