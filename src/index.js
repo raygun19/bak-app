@@ -25,16 +25,10 @@ const App = () => {
     let number = 1;
 
     if (m.some((item) => item.text === txt)) {
-      //number = item.num;
-      //number = number + 1;
-      // setM([
-      //   ...m,
-      //   {
-      //     num: number + 1,
-      //     text: txt,
-      //     key: Date.now(),
-      //   },
-      // ]);
+      let mm = [...m];
+      const a = mm.find((a) => a.text === txt);
+      a.num = a.num + 1;
+      setM(mm);
     } else {
       //if (m.indexOf(currentM) !== -1) return; //check if already exist
 
