@@ -18,25 +18,35 @@ bakeryData.forEach((item) => {
 
 const App = () => {
   const [m, setM] = React.useState([]);
-  const [currentM, setCurrentM] = React.useState({ text: '', key: '' });
-
-  const [cart, setCart] = useState([]);
 
   const addM = (txt) => {
     event.preventDefault();
 
     let number = 1;
 
-    if (m.indexOf(currentM) !== -1) return; //check if already exist
+    if (m.some((item) => item.text === txt)) {
+      //number = item.num;
+      //number = number + 1;
+      // setM([
+      //   ...m,
+      //   {
+      //     num: number + 1,
+      //     text: txt,
+      //     key: Date.now(),
+      //   },
+      // ]);
+    } else {
+      //if (m.indexOf(currentM) !== -1) return; //check if already exist
 
-    setM([
-      ...m,
-      {
-        num: number,
-        text: txt,
-        key: Date.now(),
-      },
-    ]);
+      setM([
+        ...m,
+        {
+          num: number,
+          text: txt,
+          key: Date.now(),
+        },
+      ]);
+    }
   };
 
   const removeM = (key) => {
@@ -61,9 +71,6 @@ const App = () => {
               index // TODO: map bakeryData to BakeryItem components
             ) => (
               <BakeryItem
-                addToCart={() => {
-                  setCart([...cart, item.name]);
-                }}
                 addM={addM}
                 key={item.name}
                 name={item.name}

@@ -11,9 +11,12 @@ import {
 export default function MList(props) {
   const createEntry = (m) => {
     return (
-      <ListItemButton onClick={() => props.remove(m.key)}>
+      <ListItemButton>
         <ListItemText>{m.num}</ListItemText>
         <ListItemText>{m.text}</ListItemText>
+        <ListItemButton onClick={() => props.remove(m.key)}>
+          Remove
+        </ListItemButton>
       </ListItemButton>
     );
   };
