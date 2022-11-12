@@ -1,6 +1,6 @@
 import React from 'react';
 import { createRoot } from 'react-dom';
-
+import './style.css';
 import { Toolbar } from '@mui/material';
 
 import Topbar from './Topbar';
@@ -31,8 +31,6 @@ const App = () => {
       a.num = a.num + 1;
       setM(mm);
     } else {
-      //if (m.indexOf(currentM) !== -1) return; //check if already exist
-
       setM([
         ...m,
         {
@@ -53,13 +51,6 @@ const App = () => {
 
   return (
     <div>
-      <div id="right">
-        <h2>Cart</h2>
-        {/* TODO: render a list of items in the cart */}
-        <MList m={m} remove={removeM} />
-        <p>Price: {total}</p>
-      </div>
-
       <div id="left">
         <h1>My Bakery</h1>
 
@@ -81,6 +72,12 @@ const App = () => {
             )
           )}
         </div>
+      </div>
+      <div id="right">
+        <h2>Cart</h2>
+        {/* TODO: render a list of items in the cart */}
+        <MList m={m} remove={removeM} />
+        <p>Price: {total}</p>
       </div>
     </div>
   );
